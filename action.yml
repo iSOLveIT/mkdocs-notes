@@ -1,0 +1,36 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+name: 'MkDocs Deployment'
+description: 'GitHub Action to deploy MkDocs documentation build to any static site hosting platform'
+author: 'Duodu Randy'
+branding:
+  color: 'purple'
+  icon: 'upload-cloud'
+inputs:
+  documentation_path:
+    description: 'Relative path under $repository_path to documentation source files'
+    required: false
+    default: './docs'
+  target_branch:
+    description: 'Git branch where build pages will be transferred to'
+    required: false
+    default: 'site'
+  target_path:
+    description: 'Path in $target_branch where MkDocs build pages will be placed'
+    required: false
+    default: '.'
+  repository_path:
+    description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
+    required: false
+    default: '.'
+  requirements_path:
+    description: 'Relative path under $repository_path to pip requirements file'
+    required: false
+    default: './requirements.txt'
+  mkdocs_version:
+    description: 'Version of MkDocs'
+    required: false
+    default: '1.3'
+
+runs:
+  using: 'node12'
+  main: 'main.js'
