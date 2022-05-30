@@ -28,11 +28,30 @@ So your workflow file should be:
        runs-on: ubuntu-latest
        steps:
        - uses: actions/setup-python@v3
+         with:
+           python-version: 3.7
+       # Optional
+       - name: Update pip
+         run: |
+           pip install -U wheel
+           pip install -U setuptools
+           python -m pip install -U pip
+       - name: Get pip cache dir
+         id: pip-cache
+         run: |
+           echo "::set-output name=dir::$(pip cache dir)"
+       - name: Pip cache
+         uses: actions/cache@v2
+         with:
+           path: ${{ steps.pip-cache.outputs.dir }}
+           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+           restore-keys: |
+             ${{ runner.os }}-pip-
        - uses: actions/checkout@master
          with:
            fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
        - name: Build and Commit
-         uses:  iSOLveIT/mkdocs-notes@main
+         uses: iSOLveIT/mkdocs-notes@main
        - name: Push changes
          uses: ad-m/github-push-action@master
          with:
@@ -63,5 +82,5 @@ Input                   Default        Required     Description
 ``requirements_path``   ``'.'``        ``false``    Relative path under
                                                     ``$repository_path`` to pip
                                                     requirements file
-``mkdocs_version``      ``''``         ``false``    Custom version of MkDocs
+``mkdocs_version``      ``'1.3'``      ``false``    Custom version of MkDocs
 ======================= ============== ============ =============================
