@@ -2,7 +2,8 @@
 MkDocs Deployment
 =================
 
-Deploy MkDocs documentation build to any static site hosting platform such as Heroku.
+Build MkDocs documentation and transfer build files to a target branch.
+The target branch contents can be copied to any static site hosting platform such as Heroku.
 
 Usage
 =====

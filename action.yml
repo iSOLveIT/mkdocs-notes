@@ -4,7 +4,7 @@ description: 'GitHub Action to deploy MkDocs documentation build to any static s
 author: 'Duodu Randy'
 branding:
   color: 'purple'
-  icon: 'upload-cloud'
+  icon: 'sunrise'
 inputs:
   documentation_path:
     description: 'Relative path under $repository_path to documentation source files'
