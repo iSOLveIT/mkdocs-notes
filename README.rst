@@ -11,11 +11,12 @@ Usage
 This action only help you build and commit MkDocs documentation to ``target_branch``,
 branch. So we need some other actions:
 
-- ``action/setup-python`` for installing python and pip
+- ``action/setup-python@v3`` for installing python and pip
 - ``actions/checkout`` for checking out git repository
 - ``ad-m/github-push-action`` for pushing site to remote
 
-So your workflow file should be:
+So you can create a YAML file with the following contents 
+in the ``.github/workflows`` directory in your repository:
 
 .. code-block:: yaml
 
