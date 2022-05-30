@@ -30,23 +30,6 @@ So your workflow file should be:
        - uses: actions/setup-python@v3
          with:
            python-version: 3.7
-       # Optional
-       - name: Update pip
-         run: |
-           pip install -U wheel
-           pip install -U setuptools
-           python -m pip install -U pip
-       - name: Get pip cache dir
-         id: pip-cache
-         run: |
-           echo "::set-output name=dir::$(pip cache dir)"
-       - name: Pip cache
-         uses: actions/cache@v2
-         with:
-           path: ${{ steps.pip-cache.outputs.dir }}
-           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-           restore-keys: |
-             ${{ runner.os }}-pip-
        - uses: actions/checkout@master
          with:
            fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
