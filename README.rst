@@ -70,8 +70,8 @@ Input                   Default          Required     Description
                                                       Input unless you checkout
                                                       the repository to a custom
                                                       path
-``requirements_path``   ``'.'``          ``false``      Relative path under
+``requirements_path``   ``'.'``          ``false``    Relative path under
                                                       ``$repository_path`` to pip
                                                       requirements file
-``mkdocs_version``      ``'1.3'``        ``false``      Custom version of MkDocs
-======================= ================ ============= ===============================
+``mkdocs_version``      ``'1.3'``        ``false``    Custom version of MkDocs
+======================= ================ ============ ===============================

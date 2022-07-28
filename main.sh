@@ -5,6 +5,7 @@ set -e
 
 repo_dir=$GITHUB_WORKSPACE/$INPUT_REPOSITORY_PATH
 doc_dir=$repo_dir/$INPUT_DOCUMENTATION_PATH
+config_file=$repo_dir/$INPUT_CONFIG_FILE_PATH
 
 echo ::group:: Initialize various paths
 echo Workspace: $GITHUB_WORKSPACE
@@ -51,8 +52,6 @@ echo Temp directory \"$tmp_dir\" is created
 echo ::endgroup::
 
 echo ::group:: Running MkDocs builder
-
-config_file="${doc_dir}mkdocs.yml"
 echo "MkDocs config file located at: ${config_file}"
 
 if [[ ! -e $config_file ]]; then
