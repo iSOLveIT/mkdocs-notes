@@ -54,7 +54,7 @@ echo ::endgroup::
 echo ::group:: Running MkDocs builder
 echo "MkDocs config file located at: ${config_file}"
 
-if [[ ! -e $config_file ]]; then
+if [[ -e $config_file ]]; then
   mkdocs build -f $config_file --site-dir $tmp_dir --clean
 fi
 
