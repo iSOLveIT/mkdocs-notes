@@ -10,6 +10,10 @@ inputs:
     description: 'Relative path under $repository_path to documentation source files'
     required: false
     default: './docs'
+  config_file_path:
+    description: 'Relative path to the `mkdocs.yml` configuration file'
+    required: true
+    default: 'mkdocs.yml'
   target_branch:
     description: 'Git branch where build pages will be transferred to'
     required: false
