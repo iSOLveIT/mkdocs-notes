@@ -51,7 +51,14 @@ echo Temp directory \"$tmp_dir\" is created
 echo ::endgroup::
 
 echo ::group:: Running MkDocs builder
-mkdocs build --site-dir $tmp_dir --clean
+
+config_file="${doc_dir}mkdocs.yml"
+echo "MkDocs config file located at: ${config_file}"
+
+if [[ ! -e $config_file ]]; then
+  mkdocs build -f $config_file --site-dir $tmp_dir --clean
+fi
+
 echo "<?php header( 'Location: /index.html' ) ;  ?>" > $tmp_dir/index.php
 echo ::endgroup::
 
