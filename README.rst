@@ -37,6 +37,8 @@ in the ``.github/workflows`` directory in your repository:
            fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
        - name: Build and Commit
          uses: iSOLveIT/mkdocs-notes@main
+         with:
+           config_file_path: mkdocs.yml 
        - name: Push changes
          uses: ad-m/github-push-action@master
          with:
@@ -46,26 +48,30 @@ in the ``.github/workflows`` directory in your repository:
 Inputs
 ======
 
-======================= ============== ============ =============================
-Input                   Default        Required     Description
------------------------ -------------- ------------ -----------------------------
-``documentation_path``  ``'./docs'``   ``false``    Relative path under
-                                                    repository to documentation
-                                                    source files
-``target_branch``       ``'site'``     ``false``    Git branch where assets will
-                                                    be deployed
-``target_path``          ``'.'``       ``false``    Directory in ``$target_branch``
-                                                    where MkDocs Pages will be
-                                                    placed
-``repository_path``     ``'.'``        ``false``    Relative path under
-                                                    ``$GITHUB_WORKSPACE`` to
-                                                    place the repository.
-                                                    You not need to set this
-                                                    Input unless you checkout
-                                                    the repository to a custom
-                                                    path
-``requirements_path``   ``'.'``        ``false``    Relative path under
-                                                    ``$repository_path`` to pip
-                                                    requirements file
-``mkdocs_version``      ``'1.3'``      ``false``    Custom version of MkDocs
-======================= ============== ============ =============================
+======================= ================ ============ ===============================
+Input                   Default          Required     Description
+----------------------- ---------------- ------------ -------------------------------
+
+``config_file_path``    ``'mkdocs.yml'`` ``true``     Relative path to the 
+                                                      `mkdocs.yml` configuration 
+                                                      file
+``documentation_path``  ``'./docs'``     ``false``    Relative path under
+                                                      repository to documentation
+                                                      source files
+``target_branch``       ``'site'``       ``false``    Git branch where assets will
+                                                      be deployed
+``target_path``          ``'.'``         ``false``    Directory in ``$target_branch``
+                                                      where MkDocs Pages will be
+                                                      placed
+``repository_path``     ``'.'``          ``false``    Relative path under
+                                                      ``$GITHUB_WORKSPACE`` to
+                                                      place the repository.
+                                                      You not need to set this
+                                                      Input unless you checkout
+                                                      the repository to a custom
+                                                      path
+``requirements_path``   ``'.'``          ``false``      Relative path under
+                                                      ``$repository_path`` to pip
+                                                      requirements file
+``mkdocs_version``      ``'1.3'``        ``false``      Custom version of MkDocs
+======================= ================ ============= ===============================
