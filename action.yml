@@ -1,6 +1,6 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 name: 'MkDocs Deployment'
-description: 'GitHub Action to deploy MkDocs documentation build to any static site hosting platform'
+description: 'GitHub Action to deploy MkDocs documentation build files to any static-site hosting platform'
 author: 'Duodu Randy'
 branding:
   color: 'purple'
@@ -15,7 +15,7 @@ inputs:
     required: true
     default: 'mkdocs.yml'
   target_branch:
-    description: 'Git branch where build pages will be transferred to'
+    description: 'Git branch where build files will be transferred to'
     required: false
     default: 'site'
   target_path:
@@ -33,7 +33,7 @@ inputs:
   mkdocs_version:
     description: 'Version of MkDocs'
     required: false
-    default: '1.3'
+    default: '1.4'
 
 runs:
   using: 'node16'

@@ -3,20 +3,22 @@ MkDocs Deployment
 =================
 
 Build MkDocs documentation and transfer build files to a target branch.
-The target branch contents can be copied to any static site hosting platform such as Heroku.
+The target branch contents can be copied to any static site hosting platform such as GitHub Pages.
 
 Usage
 =====
 
-This action only help you build and commit MkDocs documentation to ``target_branch``,
-branch. So we need some other actions:
+This action only helps you build and commit MkDocs documentation to ``target_branch``,
+branch. 
 
-- ``action/setup-python@v3`` for installing python and pip
+Also we need to use some other actions:
+
+- ``action/setup-python@v3`` for installing Python and Pip
 - ``actions/checkout`` for checking out git repository
-- ``ad-m/github-push-action`` for pushing site to remote
+- ``ad-m/github-push-action`` for pushing static build files to remote target branch
 
-So you can create a YAML file with the following contents 
-in the ``.github/workflows`` directory in your repository:
+For example, you can create a YAML file for your GitHub workflow with the following contents 
+and save it under the ``.github/workflows`` directory in your repository:
 
 .. code-block:: yaml
 
@@ -73,5 +75,5 @@ Input                   Default          Required     Description
 ``requirements_path``   ``'.'``          ``false``    Relative path under
                                                       ``$repository_path`` to pip
                                                       requirements file
-``mkdocs_version``      ``'1.3'``        ``false``    Custom version of MkDocs
+``mkdocs_version``      ``'1.4'``        ``false``    Custom version of MkDocs
 ======================= ================ ============ ===============================
