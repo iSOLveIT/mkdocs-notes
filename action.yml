@@ -36,5 +36,5 @@ inputs:
     default: '1.4'
 
 runs:
-  using: 'node16'
+  using: 'node22'
   main: 'main.js'
