@@ -13,7 +13,7 @@ branch.
 
 Also we need to use some other actions:
 
-- ``action/setup-python@v3`` for installing Python and Pip
+- ``action/setup-python@v5`` for installing Python and Pip
 - ``actions/checkout`` for checking out git repository
 - ``ad-m/github-push-action`` for pushing static build files to remote target branch
 
@@ -31,10 +31,10 @@ and save it under the ``.github/workflows`` directory in your repository:
      build:
        runs-on: ubuntu-latest
        steps:
-       - uses: actions/setup-python@v3
+       - uses: actions/setup-python@v5
          with:
-           python-version: 3.7
-       - uses: actions/checkout@master
+           python-version: 3.12.6
+       - uses: actions/checkout@v4
          with:
            fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
        - name: Build and Commit
